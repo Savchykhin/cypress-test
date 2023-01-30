@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open"
   },
   "repository": {
     "type": "git",
@@ -16,7 +18,7 @@
     "url": "https://github.com/Savchykhin/cypress-test/issues"
   },
   "homepage": "https://github.com/Savchykhin/cypress-test#readme",
-  "dependencies": {
-    "cypress": "^7.5.0"
+  "devDependencies": {
+    "cypress": "^12.4.1"
   }
 }
