@@ -1,22 +1,48 @@
 
-name: Cypress Tests
+name: Push to Master
 on:
-  pull_request:
-    types: [opened, reopened]
+  push:
+    branches:
+      - main
+
 jobs:
-  Cypress-Test:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
+  build-deploy-stage:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout GitCode
+      - name: Checkout
+        uses: actions/checkout@v2
+ 
+  cypress-tests-stage:
+    depends-on: build-deploy-stage
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
         uses: actions/checkout@v2
   
-      - name: Run Cypress Test
-        uses: cypress-io/github-action@v5
-        with:
-          browser: chrome
-          
-
+      - name: Run Cypress Stage
+          uses: cypress-io/github-action@v5
+          with:
+            browser: chrome
+            config-file: cypress.stage.config.json
+  
+  build-deploy-prod:
+    depends-on: cypress-tests-stage
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+ 
+  cypress-tests-prod:
+    depends-on: build-deploy-prod
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+  
+      - name: Run Cypress Prod
+          uses: cypress-io/github-action@v5
+          with:
+            browser: chrome
+            config-file: cypress.prod.config.json
+ 
  

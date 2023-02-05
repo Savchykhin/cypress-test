@@ -4,7 +4,7 @@ on:
     - cron: '0 9 * * *' 
 jobs:
  Cypress-Test:
-   runs-on: windows-latest
+   runs-on: ubuntu-latest
    steps:
      - name: Checkout GitCode
        uses: actions/checkout@v2
@@ -13,3 +13,4 @@ jobs:
        uses: cypress-io/github-action@v5
        with:
          browser: chrome
+         config-file: cypress.prod.config.json
