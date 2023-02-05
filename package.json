@@ -6,6 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "cy:run": "cypress run",
+    "cy:run:prod": "cypress open --config-file cypress.prod.config.js",
+    "cy:run:staging": "cypress run --config-file cypress.stage.config",
     "cy:open": "cypress open"
   },
   "repository": {
@@ -20,5 +22,8 @@
   "homepage": "https://github.com/Savchykhin/cypress-test#readme",
   "devDependencies": {
     "cypress": "^12.4.1"
+  },
+  "dependencies": {
+    "defu": "^6.1.2"
   }
 }

@@ -1,8 +1,6 @@
 
-name: Cypress Tests
-on:
-  pull_request:
-    types: [opened, reopened]
+name: Cypress Tests on Prod on PR
+on: pull_request
 jobs:
   Cypress-Test:
     strategy:
@@ -13,10 +11,8 @@ jobs:
       - name: Checkout GitCode
         uses: actions/checkout@v2
   
-      - name: Run Cypress Test
+      - name: Run Cypress Prod
         uses: cypress-io/github-action@v5
         with:
           browser: chrome
-          config-file: cypress.stage.config.json
-
- 
+          config-file: cypress.prod.config.json
