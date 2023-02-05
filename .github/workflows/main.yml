@@ -3,7 +3,7 @@ name: Push to Master
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build-deploy-stage:
@@ -11,6 +11,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: build
+        run: echo "build"
+      - name: deploy
+        run: echo "tests"
  
   cypress-tests-stage:
     depends-on: build-deploy-stage
@@ -20,10 +24,10 @@ jobs:
         uses: actions/checkout@v2
   
       - name: Run Cypress Stage
-          uses: cypress-io/github-action@v5
-          with:
-            browser: chrome
-            config-file: cypress.stage.config.json
+        uses: cypress-io/github-action@v5
+        with:
+          browser: chrome
+          config-file: cypress.stage.config.json
   
   build-deploy-prod:
     depends-on: cypress-tests-stage
@@ -31,6 +35,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: build
+        run: echo "build"
+      - name: deploy
+        run: echo "deploy"
  
   cypress-tests-prod:
     depends-on: build-deploy-prod
@@ -40,9 +48,9 @@ jobs:
         uses: actions/checkout@v2
   
       - name: Run Cypress Prod
-          uses: cypress-io/github-action@v5
-          with:
-            browser: chrome
-            config-file: cypress.prod.config.json
+        uses: cypress-io/github-action@v5
+        with:
+          browser: chrome
+          config-file: cypress.prod.config.json
  
  
