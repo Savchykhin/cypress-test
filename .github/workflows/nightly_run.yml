@@ -1,0 +1,15 @@
+name: Cypress Tests Nightly Run
+on:
+  pschedule:
+    - cron: '0 9 * * *' 
+jobs:
+ Cypress-Test:
+   runs-on: windows-latest
+   steps:
+     - name: Checkout GitCode
+       uses: actions/checkout@v2
+ 
+     - name: Run Cypress Test
+       uses: cypress-io/github-action@v5
+       with:
+         browser: chrome
