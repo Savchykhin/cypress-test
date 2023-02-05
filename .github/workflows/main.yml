@@ -12,7 +12,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: build
+        run: echo "build"
       - name: deploy
+        run: echo "tests"
  
   cypress-tests-stage:
     depends-on: build-deploy-stage
@@ -34,7 +36,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: build
+        run: echo "build"
       - name: deploy
+        run: echo "deploy"
  
   cypress-tests-prod:
     depends-on: build-deploy-prod
