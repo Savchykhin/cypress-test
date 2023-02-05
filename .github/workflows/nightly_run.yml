@@ -1,6 +1,6 @@
 name: Cypress Tests Nightly Run
 on:
-  pschedule:
+  schedule:
     - cron: '0 9 * * *' 
 jobs:
  Cypress-Test:
