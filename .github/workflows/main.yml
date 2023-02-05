@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v2
  
   cypress-tests-stage:
-    depends-on: build-deploy-stage
+    needs: build-deploy-stage
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -26,14 +26,14 @@ jobs:
             config-file: cypress.stage.config.json
   
   build-deploy-prod:
-    depends-on: cypress-tests-stage
+    needs: cypress-tests-stage
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
  
   cypress-tests-prod:
-    depends-on: build-deploy-prod
+    needs: build-deploy-prod
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
