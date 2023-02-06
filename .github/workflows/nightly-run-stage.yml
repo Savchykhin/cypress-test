@@ -3,7 +3,7 @@ on:
   schedule:
     - cron: '0 7 * * *' 
 jobs:
- Cypress-Test:
+ cypress-test:
    runs-on: ubuntu-latest
    steps:
      - name: Checkout GitCode

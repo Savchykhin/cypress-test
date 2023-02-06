@@ -5,7 +5,7 @@ on:
       - QE/**
 
 jobs:
-  build-deploy-stage:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout GitCode
