@@ -13,4 +13,4 @@ jobs:
        uses: cypress-io/github-action@v5
        with:
          browser: chrome
-         config-file: cypress.prod.config.json
+         config-file: cypress.prod.config.js
