@@ -1,8 +1,15 @@
 name: one test
-on:
-  pull_request:
-    branches:
-      - QE/**
+on: 
+  workflow_dispatch:
+    inputs:
+      env:
+        description: 'env'
+        required: true
+        default: 'stage'
+        type: choice
+        options:
+        - stage
+        - prod
 
 jobs:
   build-deploy-stage:
@@ -16,5 +23,5 @@ jobs:
        uses: cypress-io/github-action@v5
        with:
          browser: chrome
-         config-file: cypress.stage.config.json
+         config-file: cypress.${{ inputs.env }}.config.json
  
