@@ -1,4 +1,4 @@
-name: one test
+name: manual test
 on: 
   workflow_dispatch:
     inputs:
