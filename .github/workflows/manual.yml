@@ -13,13 +13,13 @@ on:
 
 jobs:
   build-deploy-stage:
-  runs-on: ubuntu-latest
-  steps:
-    - name: Checkout GitCode
-      uses: actions/checkout@v2
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout GitCode
+        uses: actions/checkout@v2
 
-    - name: Run Cypress Test
-      uses: cypress-io/github-action@v5
-      with:
-        browser: chrome
-        config-file: cypress.${{ inputs.env }}.config.json
+      - name: Run Cypress Test
+        uses: cypress-io/github-action@v5
+        with:
+          browser: chrome
+          config-file: cypress.${{ inputs.env }}.config.json
