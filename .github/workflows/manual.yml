@@ -22,7 +22,7 @@ jobs:
         uses: cypress-io/github-action@v5
         with:
           browser: chrome
-          config-file: cypress.${{ inputs.env }}.config.js
+          config-file: cypress.config.js
 
       - name: poihuiartifact
         if: always()

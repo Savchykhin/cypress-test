@@ -27,7 +27,7 @@ jobs:
         uses: cypress-io/github-action@v5
         with:
           browser: chrome
-          config-file: cypress.stage.config.js
+          config-file: cypress.config.js
   
   build-deploy-prod:
     needs: cypress-tests-stage
@@ -51,6 +51,6 @@ jobs:
         uses: cypress-io/github-action@v5
         with:
           browser: chrome
-          config-file: cypress.prod.config.js
+          config-file: cypress.config.js
  
  
