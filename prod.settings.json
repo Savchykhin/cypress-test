@@ -1,0 +1,6 @@
+{
+    "baseUrl": "https://glebbahmutov.com",
+    "env": {
+        "apiEndpoint": "https://api.prod.com"
+    }
+}
