@@ -21,7 +21,8 @@
   },
   "homepage": "https://github.com/Savchykhin/cypress-test#readme",
   "devDependencies": {
-    "cypress": "^12.4.1"
+    "cypress": "^12.4.1",
+    "cypress-mochawesome-reporter": "^3.5.0"
   },
   "dependencies": {
     "defu": "^6.1.2"
