@@ -24,8 +24,8 @@ jobs:
           browser: chrome
           config-file: cypress.${{ inputs.env }}.config.js
 
-      - name: Download a single artifact
-        uses: actions/download-artifact@v3
+      - name: poihuiartifact
+        uses: actions/upload-artifact@v3
         with:
           name: my-artifact
           path: cypress/reports/html/
